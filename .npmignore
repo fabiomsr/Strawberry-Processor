@@ -1,0 +1,8 @@
+src/
+test/
+node_modules/
+
+.gitignore
+gulpfile.js
+tsconfig.json
+tslint.json
