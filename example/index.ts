@@ -19,4 +19,6 @@ class SimplenProcessor extends DocumentObserver(DocumentProcessor) {
 }
 
 const processor = new SimplenProcessor();
-processor.start();
+processor.start()
+    .then(() => console.log("Finish"))
+    .catch((error) => console.error(`Error:${error}`));

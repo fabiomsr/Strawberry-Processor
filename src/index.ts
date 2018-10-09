@@ -1,3 +1,4 @@
+import { JSONProvider, Provider } from "./provider";
 
 export type Handler = <T>(node: T) => void;
 
@@ -6,15 +7,18 @@ export class DocumentProcessor {
     private targets: string[] = [];
     private handlers: Map<string, Handler> = new Map();
 
-    constructor() {
+    constructor(private provider: Provider = new JSONProvider()) {
         this.create();
     }
 
-    public start() {
-        this.targets.forEach((target) => {
+    public async start(): Promise<void> {
+        await this.provider.load();
+
+        for (const target of this.targets) {
+            const data = await this.provider.fetch(target);
             const handler = this.handlers.get(target);
-            handler!(target);
-        });
+            handler!(data);
+        }
     }
 
     protected addObserver(target: string, handler: Handler) {
