@@ -1,6 +1,6 @@
 export interface Provider {
     load(): Promise<void>;
-    fetch(key: string): Promise<any>;
+    fetch(key: string): any;
 }
 
 export class JSONProvider implements Provider {
@@ -12,10 +12,14 @@ export class JSONProvider implements Provider {
         this.document = {
             title: "Document Title",
             description: "Document Description",
+            author: {
+                name: "Author name",
+                lastName: "Author lastname",
+            },
         };
     }
 
-    public async fetch(key: string): Promise<any> {
+    public fetch(key: string): any {
         const fields = key.split(".");
         return fields.reduce((previous, current) => previous[current], this.document);
     }

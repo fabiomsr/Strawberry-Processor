@@ -15,7 +15,7 @@ export class DocumentProcessor {
         await this.provider.load();
 
         for (const target of this.targets) {
-            const data = await this.provider.fetch(target);
+            const data = this.provider.fetch(target);
             const handler = this.handlers.get(target);
             handler!(data);
         }

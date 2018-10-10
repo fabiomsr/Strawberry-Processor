@@ -6,13 +6,13 @@ class SimplenProcessor extends DocumentObserver(DocumentProcessor) {
 
     @observe("title")
     public title(title: string): string {
-        console.log("Processing title");
+        console.log(title);
         return `# ${title}`;
     }
 
     @observe("description")
     public description(description: string): string {
-        console.log("Processing description");
+        console.log(description);
         return `${description}`;
     }
 
