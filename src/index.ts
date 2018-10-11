@@ -1,13 +1,15 @@
+import { DefaultOutputHandler, OutputHandler } from "./output";
 import { JSONProvider, Provider } from "./provider";
 
-export type Handler = <T>(node: T) => void;
+export type Handler = <T>(node: T) => string;
 
 export class DocumentProcessor {
 
     private targets: string[] = [];
     private handlers: Map<string, Handler> = new Map();
 
-    constructor(private provider: Provider = new JSONProvider()) {
+    constructor(private provider: Provider = new JSONProvider(),
+                private output: OutputHandler = new DefaultOutputHandler()) {
         this.create();
     }
 
@@ -17,8 +19,10 @@ export class DocumentProcessor {
         for (const target of this.targets) {
             const data = this.provider.fetch(target);
             const handler = this.handlers.get(target);
-            handler!(data);
+            this.output.append(handler!(data));
         }
+
+        return await this.finish();
     }
 
     protected addObserver(target: string, handler: Handler) {
@@ -29,4 +33,9 @@ export class DocumentProcessor {
     protected create() {
         // Nothing
     }
+
+    protected async finish(): Promise<void> {
+        return await this.output.flush();
+    }
+
 }
