@@ -1,8 +1,8 @@
-import { DocumentProcessor, Handler } from ".";
+import { DocumentProcessor, FieldRequirement, Handler } from ".";
 
 interface SuperDocumentProcessorConstructor {
 
-    observers?: Array<{target: string, handler: Handler}>;
+    observers?: Array<{target: string,  handler: Handler, requirement?: FieldRequirement }>;
 
     new(...args: any[]): DocumentProcessor;
 
@@ -21,12 +21,13 @@ export function DocumentObserver<TBase extends SuperDocumentProcessorConstructor
     return class extends Base {
 
         public static _addDocumentProcessorObserver(target: string,
-                                                    handler: <T>(node: T) => string): void {
+                                                    handler: <T>(node: T) => string,
+                                                    requirement?: FieldRequirement): void {
             if (!this.hasOwnProperty("observers")) {
                 this.observers = [];
             }
 
-            this.observers!.push({target, handler});
+            this.observers!.push({target, handler, requirement});
         }
 
         public create() {
@@ -37,7 +38,8 @@ export function DocumentObserver<TBase extends SuperDocumentProcessorConstructor
                 constructor.observers = [];
             }
 
-            constructor.observers!.forEach(({target, handler}) => this.addObserver(target, handler.bind(this)));
+            constructor.observers!.forEach(({target, handler, requirement}) =>
+                                             this.addObserver(target, handler.bind(this), requirement));
         }
 
     };

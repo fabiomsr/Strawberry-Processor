@@ -9,9 +9,14 @@ class SimpleProcessor extends DocumentObserver(DocumentProcessor) {
         return `# ${title}`;
     }
 
-    @observe("description")
+    @observe("description", { requirement: (desc: string) => desc.length > 10 })
     public description(description: string): string {
         return `${description}`;
+    }
+
+    @observe("author", {mandatory: false})
+    public author(author: {name: string, lastname: string}): string {
+        return `${author.name}`;
     }
 
 }

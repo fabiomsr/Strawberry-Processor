@@ -1,8 +1,8 @@
-import { DocumentProcessor } from ".";
+import { DocumentProcessor, FieldRequirement } from ".";
 
 interface DocumentProcessorConstructor extends Function {
     _addDocumentProcessorObserver?:
-        (target: string, handler: <T>(ev: T) => string) => void;
+        (target: string, handler: <T>(ev: T) => string, requirement?: FieldRequirement) => void;
 }
 
 interface DocumentProcessorPrototype extends DocumentProcessor {
@@ -13,16 +13,16 @@ type HasObservers<P extends string> = {
     [K in P]: (e: any) => string
 };
 
-export function observe(name: string) {
+export function observe(name: string, requirement?: FieldRequirement) {
     return <P extends string, T extends DocumentProcessorPrototype&HasObservers<P>>
      (target: T, method: P) => {
 
         if (!target.constructor._addDocumentProcessorObserver) {
             throw new Error(
                 `Cannot add observer for ${method} because ` +
-                `DocumentObserver mixin was not applied to element.`);
+                `DocumentObserver mixin was not applied to processor.`);
         }
 
-        target.constructor._addDocumentProcessorObserver(name, (target as HasObservers<P>)[method]);
+        target.constructor._addDocumentProcessorObserver(name, (target as HasObservers<P>)[method], requirement);
     };
 }
