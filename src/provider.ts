@@ -1,3 +1,5 @@
+import { readFileSync } from 'fs';
+
 export interface Provider {
     load(): Promise<void>;
     fetch(key: string): any;
@@ -5,18 +7,25 @@ export interface Provider {
 
 export class JSONProvider implements Provider {
 
+    constructor(private document: any){ }
+
+    public async load(): Promise<void> {}
+
+    public fetch(key: string): any {
+        const fields = key.split(".");
+        return fields.reduce((previous, current) => previous[current], this.document);
+    }
+}
+
+export class JSONFileProvider implements Provider {
+
     private document: any = {};
 
+    constructor(private path: string){ }
+
     public async load(): Promise<void> {
-        // TODO: read from file
-        this.document = {
-            title: "Document Title",
-            description: "Document Description",
-            author: {
-                name: "Author name",
-                lastName: "Author lastname",
-            },
-        };
+        const rawData = readFileSync(this.path, {encoding: 'UTF-8'});
+        this.document = JSON.parse(rawData)
     }
 
     public fetch(key: string): any {
