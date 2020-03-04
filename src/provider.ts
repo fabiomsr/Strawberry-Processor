@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs';
+import {parse } from '@iarna/toml'
 
 export interface Provider {
     load(): Promise<void>;
@@ -26,6 +27,23 @@ export class JSONFileProvider implements Provider {
     public async load(): Promise<void> {
         const rawData = readFileSync(this.path, {encoding: 'UTF-8'});
         this.document = JSON.parse(rawData)
+    }
+
+    public fetch(key: string): any {
+        const fields = key.split(".");
+        return fields.reduce((previous, current) => previous[current], this.document);
+    }
+}
+
+export class TomlFileProvider implements Provider {
+
+    private document: any = {};
+
+    constructor(private path: string){ }
+
+    public async load(): Promise<void> {
+        const rawData = readFileSync(this.path, {encoding: 'UTF-8'});
+        this.document = parse(rawData)
     }
 
     public fetch(key: string): any {

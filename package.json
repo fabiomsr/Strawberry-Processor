@@ -23,11 +23,14 @@
     "url": "https://github.com/fabiomsr/document-processor/issues"
   },
   "homepage": "https://github.com/fabiomsr/document-processor#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@iarna/toml": "2.2.3"
+  },
   "devDependencies": {
     "@types/chai": "4.1.6",
     "@types/mocha": "5.2.5",
     "@types/node": "^13.7.7",
+    "@types/iarna__toml": "2.0.0",
     "chai": "4.2.0",
     "del": "3.0.0",
     "gulp": "4.0.2",

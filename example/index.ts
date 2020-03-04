@@ -1,7 +1,7 @@
 import { DocumentProcessor, FieldRequirement, FieldError } from "../src";
 import { process } from "../src/decorator";
 import { DocumentObserver } from "../src/observer";
-import { JSONProvider, JSONFileProvider } from "../src/provider";
+import { JSONProvider, JSONFileProvider, TomlFileProvider } from "../src/provider";
 import { FileOutputHandler, ContentOutputHandler } from "../src/output";
 
 class SimpleProcessor extends DocumentObserver(DocumentProcessor) {
@@ -48,7 +48,8 @@ function minSize(size: number): FieldRequirement {
 }
 
 
-const provider = new JSONFileProvider("./example/assets/README.json")
+//const provider = new JSONFileProvider("./example/assets/README.json")
+const provider = new TomlFileProvider("./example/assets/README.toml")
 const outputHandler = new FileOutputHandler("./example/assets/README.md")
 const processor = new SimpleProcessor(provider, outputHandler);
 processor.start()
