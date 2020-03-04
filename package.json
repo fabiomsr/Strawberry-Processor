@@ -25,15 +25,16 @@
   "homepage": "https://github.com/fabiomsr/document-processor#readme",
   "dependencies": {},
   "devDependencies": {
-    "@types/chai": "^4.1.6",
-    "@types/mocha": "^5.2.5",
-    "chai": "^4.2.0",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-typescript": "^5.0.0-alpha.3",
-    "mocha": "^5.2.0",
-    "ts-node": "^7.0.1",
-    "tslint": "^5.11.0",
-    "typescript": "^3.1.1"
+    "@types/chai": "4.1.6",
+    "@types/mocha": "5.2.5",
+    "@types/node": "^13.7.7",
+    "chai": "4.2.0",
+    "del": "3.0.0",
+    "gulp": "4.0.2",
+    "gulp-typescript": "6.0.0-alpha.1",
+    "mocha": "5.2.0",
+    "ts-node": "8.6.2",
+    "tslint": "5.11.0",
+    "typescript": "3.8.3"
   }
 }
