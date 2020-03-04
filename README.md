@@ -118,7 +118,7 @@ So, you can do things like that:
 
 ~~~
 
-If any of these requirements are wrong the processor will throw an error with an explanation.
+If any of these requirements fail the processor will throw an error with an explanation.
 
 For example, for this input:
 
