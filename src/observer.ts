@@ -10,7 +10,7 @@ interface SuperDocumentProcessorConstructor {
 
 interface DocumentProcessorObserverConstructor {
 
-    _addDocumentProcessorObserver: (target: string, handler: (node: any) => string) => void;
+    _addDocumentProcessorObserver: (target: string, handler: Handler) => void;
 
     new(...args: any[]): {};
 
@@ -21,7 +21,7 @@ export function DocumentObserver<TBase extends SuperDocumentProcessorConstructor
     return class extends Base {
 
         public static _addDocumentProcessorObserver(target: string,
-                                                    handler: <T>(node: T) => string,
+                                                    handler: Handler,
                                                     requirement?: FieldRequirement): void {
             if (!this.hasOwnProperty("observers")) {
                 this.observers = [];
