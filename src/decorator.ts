@@ -2,7 +2,7 @@ import { DocumentProcessor, FieldRequirement } from ".";
 
 interface DocumentProcessorConstructor extends Function {
     _addDocumentProcessorObserver?:
-        (target: string, handler: <T>(ev: T) => string, requirement?: FieldRequirement) => void;
+        (target: string, handler: <T>(ev: T) => string | Promise<string>, requirement?: FieldRequirement) => void;
 }
 
 interface DocumentProcessorPrototype extends DocumentProcessor {
@@ -10,10 +10,10 @@ interface DocumentProcessorPrototype extends DocumentProcessor {
 }
 
 type HasObservers<P extends string> = {
-    [K in P]: (e: any) => string
+    [K in P]: (e: any) => string | Promise<string>
 };
 
-export function observe(name: string, requirement?: FieldRequirement) {
+export function process(name: string, requirement?: FieldRequirement) {
     return <P extends string, T extends DocumentProcessorPrototype&HasObservers<P>>
      (target: T, method: P) => {
 
