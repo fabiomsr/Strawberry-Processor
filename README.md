@@ -2,7 +2,7 @@
 
 # Strawberry Document Processor
 
-The aim of this package is to generate documents by proccesing another one, allowing throughout the proccess to verify the input document.
+This package aims to generate documents by processing another one, allowing throughout the process to verify the input document.
 
 Here you have a Hello World! example:
 
@@ -34,7 +34,7 @@ Now you can create a processor to convert it to a Markdown file:
 
 ~~~
 
-Finally you have to run the processor:
+Finally, you have to run the processor:
 
 ~~~ts
     const provider = new JSONFileProvider("README.json")
@@ -62,9 +62,9 @@ For example, it is useful when you have to generate multiple documents with the 
 
 ## Document Correctness
 
-You may want to check the correctness of a file and it cannot be checked by itself as a markdown file. With this package you can add rules to check every part of the document you want.
+You may want to check the correctness of a file and it cannot be checked by itself as a markdown file. With this package, you can add rules to check every part of the document you want.
 
-To add a requirement to a field you can add an extra params to the __process__ decorator.
+To add a requirement to a field you can add extra params to the __process__ decorator.
 
 ~~~ts
     @process(id: string, requirement?: FieldRequirement)
@@ -118,7 +118,7 @@ So, you can do things like that:
 
 ~~~
 
-If any of this requirements are wrong the processor will throw an error with an explanation.
+If any of these requirements are wrong the processor will throw an error with an explanation.
 
 For example, for this input:
 
@@ -138,15 +138,15 @@ You got this result:
     There are some errors in the input document
 ~~~
 
-As you can see, it can be useful to add to your continuos integration so you can easily verify the correctness and deny any PR.
+As you can see, it can be useful to add to your continuous integration so you can easily verify the correctness and deny any PR.
 
 ## Field process
 
 ### Children
 
-To proccess a children field you have to use the period sintax, as shown below:
+To process a children field you have to use the period syntax, as shown below:
 
-- We will proccess the author name so we need to specify this id: __author.name__:
+- We will process the author name so we need to specify this id: __author.name__:
 
 ~~~json
     {
@@ -169,7 +169,7 @@ To proccess a children field you have to use the period sintax, as shown below:
 
 ### Node
 
-You can recieve an object instead of a string , for example:
+You can receive an object instead of a string, for example:
 
 ~~~ts 
     @process("author")
@@ -180,7 +180,7 @@ You can recieve an object instead of a string , for example:
 
 ### Get a field
 
-If you need get a field when you are procesing another you can use the field method, you can also use the period sintax with the field method.
+If you need to get a field when you are processing another you can use the field method, you can also use the period syntax with the field method.
 
 ~~~ts
     @process("author")
@@ -202,7 +202,7 @@ The field method is parametrized so you can specify a return type:
 
 ### Register an error
 
-To register an error you can use the errors method and add a new one.
+To register an error you can use the error method and add a new one.
 
 ~~~ts
     @process("title")
@@ -215,7 +215,7 @@ To register an error you can use the errors method and add a new one.
 
 ## Async / await
 
-Processors are async/await friendly so you can specify a proccess method like an async method and return a promise:
+Processors are async/await friendly so you can specify a process method like an async method and return a promise:
 
 ~~~ts
     @process("title")
@@ -227,7 +227,7 @@ Processors are async/await friendly so you can specify a proccess method like an
 
 ### Processor Composition
 
-Due to processor are async/await friendly you can use others processor when you are procesing you document, as shown in the example below:
+Due to processors are async/await friendly you can use others processor when you are processing your document, as shown in the example below:
 
 ~~~json
     {
@@ -251,11 +251,11 @@ Due to processor are async/await friendly you can use others processor when you 
 
 ## Provider and OutputHandler
 
-This package has the folowing provider that you can use to read your input documents, if you want you custom provider you can implement the Provider interface.
+This package has the following provider that you can use to read your input documents if you want your custom provider you can implement the Provider interface.
 
 - JSONProvider, JSONFileProvider and TomlFileProvider .
 
-And it has the following output handler, you can also write your own output handler by implementing the OutputHandler interface.
+And it has the following output handler, you can also write your output handler by implementing the OutputHandler interface.
 
 - DefaultOutputHandler prints the result on the console.
 - FileOutputHandler saves the result in a file.
