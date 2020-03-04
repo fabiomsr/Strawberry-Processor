@@ -3,7 +3,16 @@ import * as chai from "chai";
 import { expect } from "chai";
 import { JSONProvider } from "../src/provider";
 
-const provider = new JSONProvider();
+const document = {
+    title: "Document Title",
+    description: "Document Description",
+    author: {
+        name: "Author name",
+        lastName: "Author lastname",
+    },
+};
+
+const provider = new JSONProvider(document);
 
 describe("Provider", () => {
 
