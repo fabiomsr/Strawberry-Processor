@@ -19,7 +19,7 @@ export class DocumentProcessor {
     private handlers: Map<string, Field> = new Map();
     private errors: FieldError[] = [];
 
-    constructor(private provider: Provider = new JSONProvider(""),
+    constructor(private provider: Provider = new JSONProvider({}),
                 private output: OutputHandler = new DefaultOutputHandler()) {
         this.create();
     }
@@ -32,7 +32,9 @@ export class DocumentProcessor {
             const field = this.handlers.get(target)!;
 
             if (this.testFieldRequirement(target, data, field.options)) {
+                if(!data) continue;
                 const result = field.handler(data)
+
                 if(result instanceof Promise) {
                     this.output.append(await result);
                 } else {
