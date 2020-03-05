@@ -1,6 +1,6 @@
 title = "Make room, Make room"
 description = "It is a 1966 science fiction novel exploring the consequences of unchecked population growth on society."
 
-author.name = "Harry"
-author.lastName = "Harrison"
-part2 = "./example/assets/README.part2.json"
+[author]
+name = "Harry"
+lastName = "Harrison"
