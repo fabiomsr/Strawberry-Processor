@@ -1,0 +1,4 @@
+id="wc-blink"
+description="A Vanilla Web Component to resurrect the magnificent `<blink>` element"
+usage="<wc-blink>This text will blink obnoxiously</wc-blink>"
+demo="https://webcomponents.dev/edit/D0ALnJi8c1AoRh9JPJBS?sv=1&pm=1"

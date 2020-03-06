@@ -1,0 +1,23 @@
+id="wc-monaco-editor"
+description="A Vanilla Web Component to embed a Monaco code editor into a web page"
+demo="https://vanillawc.github.io/wc-monaco-editor/demo/index.html"
+
+[[attributes]]
+name="id"
+description="the editor id (default `editor`)"
+
+[[attributes]]
+name="src"
+description="load the source from an external file"
+
+[[attributes]]
+name="language"
+description="set the source language"
+
+[[attributes]]
+name="style"
+description="CSS styling (default `height: 100%; width: 100%;"
+
+[[properties]]
+name="value"
+description="get/set the editor's contents"
