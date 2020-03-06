@@ -51,7 +51,8 @@ And you got this:
     __Hello, World!__
 ~~~
 
-You can see more examples inside the [exmples](./example) folder
+## More Examples
+You can see more examples inside the [examples](./examples) folder
 
 ## When it is useful?
 For example, it is useful when you have to generate multiple documents with the same structure.
