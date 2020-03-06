@@ -32,7 +32,6 @@ export class DocumentProcessor {
             const field = this.handlers.get(target)!;
 
             if (this.testFieldRequirement(target, data, field.options)) {
-                if(!data) continue;
                 const result = field.handler(data)
 
                 if(result instanceof Promise) {
