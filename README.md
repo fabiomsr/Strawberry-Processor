@@ -9,7 +9,7 @@ Here you have a Hello World! example:
 - Input file README.toml
 
 ~~~toml
-title="Toml Example",
+title="Toml Example"
 message="Hello, World!"
 ~~~
 
