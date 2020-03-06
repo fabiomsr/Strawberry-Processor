@@ -6,13 +6,11 @@ This package aims to generate documents by processing another one, allowing thro
 
 Here you have a Hello World! example:
 
-- Input file README.json
+- Input file README.toml
 
-~~~json
-    {
-        "title" : "JSON Example",
-        "message": "Hello, World!"
-    }
+~~~toml
+title="Toml Example",
+message="Hello, World!"
 ~~~
 
 Now you can create a processor to convert it to a Markdown file:
@@ -37,7 +35,7 @@ Now you can create a processor to convert it to a Markdown file:
 Finally, you have to run the processor:
 
 ~~~ts
-    const provider = new JSONFileProvider("README.json")
+    const provider = new JSONFileProvider("README.toml")
     const outputHandler = new FileOutputHandler("README.md")
 
     const processor = new SimpleProcessor(provider, outputHandler);
@@ -49,10 +47,11 @@ Finally, you have to run the processor:
 And you got this:
 
 ~~~ts
-    # JSON Example
+    # Toml Example
     __Hello, World!__
 ~~~
 
+You can see more examples inside the [exmples](./example) folder
 
 ## When it is useful?
 For example, it is useful when you have to generate multiple documents with the same structure.
@@ -148,15 +147,13 @@ To process a children field you have to use the period syntax, as shown below:
 
 - We will process the author name so we need to specify this id: __author.name__:
 
-~~~json
-    {
-        "title": "Make room, Make room",
-        "description": "It is a 1966 science fiction novel exploring the consequences of unchecked population growth on society.",
-        "author": {
-            "name": "Harry",
-            "lastName": "Harrison"
-        }
-    }
+~~~toml
+title = "Make room, Make room"
+description = "It is a 1966 science fiction novel exploring the consequences of unchecked population growth on society."
+
+[author]
+name = "Harry"
+lastName = "Harrison"
 ~~~
 
 ~~~ts 
