@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/fabiomsr/strawberry-processor.svg?branch=master)](https://travis-ci.com/fabiomsr/document-processor)
+[![Build Status](https://travis-ci.com/fabiomsr/strawberry-processor.svg?branch=master)](https://travis-ci.com/fabiomsr/strawberry-processor)
 [![Version](https://img.shields.io/npm/v/strawberry-processor?color=fc5a8d)](https://www.npmjs.com/package/strawberry-processor)
 
 # Strawberry Document Processor
