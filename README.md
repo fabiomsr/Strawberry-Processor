@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/fabiomsr/document-processor.svg?branch=master)](https://travis-ci.com/fabiomsr/document-processor)
+[![Build Status](https://travis-ci.com/fabiomsr/strawberry-processor.svg?branch=master)](https://travis-ci.com/fabiomsr/document-processor)
 
 # Strawberry Document Processor
 

@@ -1,28 +1,30 @@
 {
-  "name": "document-processor",
+  "name": "strawberry-processor",
   "version": "1.0.0",
-  "description": "",
+  "description": "A processor to generate and verify documents",
   "main": "index.js",
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.spec.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fabiomsr/document-processor.git"
+    "url": "git+https://github.com/fabiomsr/Strawberry-Processor.git"
   },
   "keywords": [
     "document",
     "processor",
     "json",
     "toml",
-    "markdown"
+    "markdown",
+    "linter"
   ],
   "author": "fabiomsr",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/fabiomsr/document-processor/issues"
+    "url": "https://github.com/fabiomsr/Strawberry-Processor/issues"
   },
-  "homepage": "https://github.com/fabiomsr/document-processor#readme",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/@fabiomsr" },
+  "homepage": "https://github.com/fabiomsr/Strawberry-Processor#readme",
   "dependencies": {
     "@iarna/toml": "2.2.3"
   },

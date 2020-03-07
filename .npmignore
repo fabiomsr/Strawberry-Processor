@@ -1,6 +1,9 @@
 src/
 test/
+examples/
 node_modules/
+dist/examples
+dist/test
 
 .gitignore
 gulpfile.js
