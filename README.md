@@ -1,8 +1,15 @@
 [![Build Status](https://travis-ci.com/fabiomsr/strawberry-processor.svg?branch=master)](https://travis-ci.com/fabiomsr/document-processor)
+[![Version](https://img.shields.io/npm/v/strawberry-processor?color=fc5a8d)](https://www.npmjs.com/package/strawberry-processor)
 
 # Strawberry Document Processor
 
 This package aims to generate documents by processing another one, allowing throughout the process to verify the input document.
+
+### Install
+
+    npm i strawberry-processor
+
+### Usage 
 
 Here you have a Hello World! example:
 
