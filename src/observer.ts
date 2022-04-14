@@ -8,7 +8,7 @@ interface SuperDocumentProcessorConstructor {
 
 }
 
-interface DocumentProcessorObserverConstructor {
+export interface DocumentProcessorObserverConstructor {
 
     _addDocumentProcessorObserver: (target: string, handler: Handler) => void;
 
