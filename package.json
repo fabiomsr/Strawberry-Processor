@@ -37,7 +37,7 @@
     "del": "3.0.0",
     "gulp": "4.0.2",
     "gulp-typescript": "6.0.0-alpha.1",
-    "mocha": "5.2.0",
+    "mocha": "10.2.0",
     "ts-node": "8.6.2",
     "tslint": "5.11.0",
     "typescript": "3.8.3"
